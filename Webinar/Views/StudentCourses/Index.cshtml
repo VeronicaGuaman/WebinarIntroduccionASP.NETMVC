@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Webinar.Models.StudentCourse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-success glyphicon glyphicon-pencil" }) |
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.StudentCourse_ID }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+        @Html.ActionLink("Detalle", "Details", new { id = item.StudentCourse_ID }, new { @class = "btn btn-info glyphicon glyphicon-align-justify" }) |
+        @Html.ActionLink("Quitar", "Delete", new { id = item.StudentCourse_ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de Quitar este campeonato?');" })
+        </td>
+    </tr>
+    }
+
+</table>
+@*@Html.ActionLink("Editar", "Edit", new { id = item.Camp_ID }, new { @class = "btn btn-warning glyphicon glyphicon-pencil" }) |
+@Html.ActionLink("Detalle", "Details", new { id = item.Camp_ID }, new { @class = "btn btn-info glyphicon glyphicon-align-justify" }) |
+@Html.ActionLink("Quitar", "Delete", new { id = item.Camp_ID }, new { @class = "btn btn-danger glyphicon glyphicon-trash", onclick = "return confirm('Esta seguro de Quitar este campeonato?');" })*@
